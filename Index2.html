@@ -9,25 +9,27 @@
     <!-- Iconos (FontAwesome) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
-        body {
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            background-image: url('Umg.png'); /* Ruta a la imagen de fondo */
-            background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
-            color: white;
-        }
+        
+                body {
+                    height: 100vh;
+                    margin: 0;
+                    padding: 0;
+                    background-image: url('Umg.png'); /* Ruta a la imagen de fondo */
+                    background-size: cover;
+                    background-position: center;
+                    font-family: Arial, sans-serif;
+                    color: white;
+                }
 
-        .container-center {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
+                            .container-center {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: calc(100vh - 50px); /* Resta el tamaño del footer */
+                text-align: center;
+            }
+
 
         .btn-option {
             background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
@@ -170,11 +172,6 @@
             <a href="#"><i class="fas fa-question-circle"></i> Ayuda</a>
         </div>
     </div>
-
-   <!-- Botón para abrir el formulario -->
-   <div class="text-center" style="padding-top: 20%;">
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#formModal">Abrir Formulario</button>
-</div>
 
 <!-- Modal para el formulario -->
 <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
