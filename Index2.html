@@ -219,28 +219,71 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- JavaScript para validación adicional -->
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
+            event.preventDefault();  // Prevenir el envío del formulario por defecto
+    
             // Capturar los valores de los campos
             var nombres = document.getElementById('nombres').value;
             var apellidos = document.getElementById('apellidos').value;
             var celular = document.getElementById('celular').value;
             var correo = document.getElementById('correo').value;
-
+    
             // Validar que el celular tenga exactamente 8 dígitos
             if (celular.length !== 8 || isNaN(celular)) {
                 alert("El celular debe contener exactamente 8 dígitos numéricos.");
             } else {
-                // Mostrar los datos capturados en la consola
-                console.log("Nombres: " + nombres);
-                console.log("Apellidos: " + apellidos);
-                console.log("Celular: " + celular);
-                console.log("Correo: " + correo);
+                // Crear un objeto con los datos capturados
+                var datosUsuario = {
+                    nombres: nombres,
+                    apellidos: apellidos,
+                    celular: celular,
+                    correo: correo
+                };
+    
+                // Guardar los datos en localStorage de manera asíncrona para no bloquear el navegador
+                guardarDatosLocalmente(datosUsuario);
+    
+                // Limpiar los campos del formulario
+                document.getElementById('contactForm').reset();
+    
+                // Mostrar un mensaje de éxito
+                alert('Datos guardados localmente con éxito');
             }
         });
+    
+        // Función para guardar los datos en localStorage
+        function guardarDatosLocalmente(datos) {
+            // Hacer esto en un bloque try-catch por si hay errores con localStorage
+            try {
+                // Recuperar los datos existentes en localStorage (si los hay)
+                var datosGuardados = localStorage.getItem('usuarios') ? JSON.parse(localStorage.getItem('usuarios')) : [];
+    
+                // Agregar los nuevos datos al array
+                datosGuardados.push(datos);
+    
+                // Guardar los datos actualizados en localStorage
+                localStorage.setItem('usuarios', JSON.stringify(datosGuardados));
+    
+                // Mostrar los datos guardados en la consola (opcional)
+                console.log('Datos guardados:', datosGuardados);
+            } catch (e) {
+                console.error("Error al guardar los datos en localStorage:", e);
+            }
+        }
+    
+        // Opcional: Función para mostrar los datos guardados (para depuración)
+        function mostrarDatosGuardados() {
+            var datosGuardados = localStorage.getItem('usuarios');
+            if (datosGuardados) {
+                console.log("Usuarios Guardados:", JSON.parse(datosGuardados));
+            } else {
+                console.log("No hay datos guardados.");
+            }
+        }
     </script>
+    
+    
+    
 </body>
 </html>
