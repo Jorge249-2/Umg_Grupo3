@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botones Estilo UMG</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos (FontAwesome) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-image: url('Umg.png'); /* Ruta a la imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .container-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .btn-option {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
+            padding: 20px 30px;
+            margin: 15px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            font-size: 1.2em;
+            transition: background 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-option:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: #fff;
+        }
+
+        .btn-option i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            color: white;
+            text-align: center;
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        /* Estilo para hacer los botones más similares a tu ejemplo */
+        .custom-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            width: 100%;
+            max-width: 500px;
+            transition: background 0.3s ease;
+        }
+
+        .custom-btn h2 {
+            display: flex;
+            align-items: center;
+            font-size: 1.5em;
+        }
+
+        .custom-btn i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .custom-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Estilo del botón Enviar con gradiente */
+        .btn-gradient {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            border: none;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 16px;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(45deg, #2575fc, #6a11cb);
+        }
+
+        .form-text {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        /* Especificar color para los títulos (label) del formulario */
+        label {
+            color: #000; /* Cambiar color a negro o cualquier otro color visible */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container-center">
+        <div class="row">
+            <!-- Botón Estudiante / Catedrático -->
+            <div class="col-12 col-md-6">
+                <a href="#" class="custom-btn text-decoration-none" data-toggle="modal" data-target="#formModal">
+                    <h2 class="d-flex lh-1 mb-1">
+                        <i class="fas fa-user-graduate me-2"></i> <!-- Ícono FontAwesome -->
+                        Estudiante / Catedrático
+                    </h2>
+                    <p>Servicio para estudiantes y catedráticos de UMG.</p>
+                </a>
+            </div>
+
+            <!-- Botón Administrativo -->
+            <div class="col-12 col-md-6">
+                <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&hd=umg.edu.gt&osid=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S856847682%3A1729446146441516&ddm=0" class="custom-btn text-decoration-none">
+                    <h2 class="d-flex lh-1 mb-1">
+                        <i class="fas fa-user-tie me-2"></i> <!-- Ícono FontAwesome -->
+                        Administrativo
+                    </h2>
+                    <p>Correo electrónico para colaboradores administrativos.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Enlaces para recuperar contraseña y ayuda -->
+        <div class="links mt-3">
+            <a href="#"><i class="fas fa-key"></i> Recuperar contraseña</a>
+            <a href="#"><i class="fas fa-question-circle"></i> Ayuda</a>
+        </div>
+    </div>
+
+   <!-- Botón para abrir el formulario -->
+   <div class="text-center" style="padding-top: 20%;">
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#formModal">Abrir Formulario</button>
+</div>
+
+<!-- Modal para el formulario -->
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="formModalLabel">Formulario Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombres">Nombres</label>
+                        <input type="text" class="form-control" id="nombres" placeholder="Ingresa tus nombres" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" class="form-control" id="apellidos" placeholder="Ingresa tus apellidos" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="celular">Celular</label>
+                        <input type="text" class="form-control" id="celular" placeholder="Ingresa tu celular" required pattern="[0-9]{8}">
+                        <small class="form-text">Debe contener exactamente 8 dígitos.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo electrónico" required>
+                    </div>
+                    <button type="submit" class="btn btn-gradient">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="footer">
+        &copy; 2024 Universidad Mariano Gálvez de Guatemala
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript para validación adicional -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Capturar los valores de los campos
+            var nombres = document.getElementById('nombres').value;
+            var apellidos = document.getElementById('apellidos').value;
+            var celular = document.getElementById('celular').value;
+            var correo = document.getElementById('correo').value;
+
+            // Validar que el celular tenga exactamente 8 dígitos
+            if (celular.length !== 8 || isNaN(celular)) {
+                alert("El celular debe contener exactamente 8 dígitos numéricos.");
+            } else {
+                // Mostrar los datos capturados en la consola
+                console.log("Nombres: " + nombres);
+                console.log("Apellidos: " + apellidos);
+                console.log("Celular: " + celular);
+                console.log("Correo: " + correo);
+            }
+        });
+    </script>
+</body>
+</html>

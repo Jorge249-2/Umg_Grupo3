@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Usuario</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-image: url('Umg.jpg'); /* Imagen de fondo que subiste */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            border: none;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-bottom: 10px; /* Ajuste para separar el botón del texto */
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(45deg, #2575fc, #6a11cb);
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: 100px auto;
+            color: #fff;
+        }
+
+        .form-text {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .footer {
+            color: white;
+            text-align: center;
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        .container-center {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-center">
+        <div class="text-center">
+            <button class="btn btn-gradient" data-toggle="modal" data-target="#formModal">Abrir Formulario</button>
+        </div>
+        <h2>Regístrate</h2>
+        <h4>Bienvenido, ingresa tus datos.</h4>
+    </div>
+
+    <!-- Modal para el formulario -->
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formModalLabel">Formulario Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nombres">Nombres</label>
+                            <input type="text" class="form-control" id="nombres" placeholder="Ingresa tus nombres" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text" class="form-control" id="apellidos" placeholder="Ingresa tus apellidos" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="celular">Celular</label>
+                            <input type="text" class="form-control" id="celular" placeholder="Ingresa tu celular" required pattern="[0-9]{8}">
+                            <small class="form-text">Debe contener exactamente 8 dígitos.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo electrónico" required>
+                        </div>
+                        <button type="submit" class="btn btn-gradient">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Universidad Mariano Gálvez de Guatemala
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript para validación adicional -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Capturar los valores de los campos
+            var nombres = document.getElementById('nombres').value;
+            var apellidos = document.getElementById('apellidos').value;
+            var celular = document.getElementById('celular').value;
+            var correo = document.getElementById('correo').value;
+
+            // Validar que el celular tenga exactamente 8 dígitos
+            if (celular.length !== 8 || isNaN(celular)) {
+                alert("El celular debe contener exactamente 8 dígitos numéricos.");
+            } else {
+                // Mostrar los datos capturados en la consola
+                console.log("Nombres: " + nombres);
+                console.log("Apellidos: " + apellidos);
+                console.log("Celular: " + celular);
+                console.log("Correo: " + correo);
+            }
+        });
+    </script>
+</body>
+</html>
